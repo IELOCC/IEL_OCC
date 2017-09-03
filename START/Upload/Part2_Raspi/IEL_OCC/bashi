@@ -1,5 +1,0 @@
-#!/bin/bash
-
-stuff='/home/pi/Research/Civil'
-python $stuff"/yum"
-echo "IT RAN....?" >> $stuff'/filestuff'
