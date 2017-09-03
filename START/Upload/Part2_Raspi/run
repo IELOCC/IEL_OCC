@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#cp -r Civil /home/pi/Research/
+cp -r lib /usr/local/
+cp modules /etc/
+cp wpa_supplicant.conf /etc/wpa_supplicant/
+sudo cp /usr/share/zoneinfo/America/Mexico_City /etc/localtime
+
+#THIS IS FOR THE HCIDUMP SCAN
+sudo mkdir --parents /usr/bin/; sudo cp HCIDUMP/hcidump $_
+sudo mkdir --parents /usr/share/doc/; sudo cp -r bluez-hcidump/* $_
+sudo mkdir --parents /usr/share/man/man1/; sudo cp HCIDUMP/hcidump.1.gz $_
+sudo mkdir --parents /var/cache/apt/archives/; sudo cp HCIDUMP/bluez-hcidump_5.23-2+rpi2_armhf.deb $_
+sudo mkdir --parents /var/lib/dpkg/info/; sudo cp -r info/* $_

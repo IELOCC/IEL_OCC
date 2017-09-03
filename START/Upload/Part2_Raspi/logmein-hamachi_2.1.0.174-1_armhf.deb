@@ -1,0 +1,999 @@
+	<html>
+    
+	<head>
+	<link rel='stylesheet' type='text/css' href='/stylesheet.css'>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<META HTTP-EQUIV="expires" VALUE="Sun, 23 Jul 2017 15:09:54 GMT">   
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">   
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<title>Customer Authentication</title>
+	</head>
+	<body>
+			<table width=100% height=100%><tr style="background: #596485";><td align=center valign=top>
+			<table class=CaptivePortal width=50% height=50%>
+				<tr bgcolor=white>
+					<td align=center valign=top>
+						<img border=1 src=/index.php?DisplayDBImage=1><br><br>
+						<b>Campus Connect </b><br><br>
+												<form method=post action=/index.php?LogMeIn=true>
+						<table><tr><td>
+							<table>
+								<tr><td>Username:</td><td><input type=text name=username maxlength=40 value=''></td></tr>
+								<tr><td>Password:</td><td><input type=password name=password></td></tr>
+								<tr><td colspan=2 align=center><input type=submit value=' Connect '></td></tr>
+							</table>
+						</td><td>
+							<style type="text/css">
+								div#box{width: 18em;padding: 20px;margin:0 auto; background:#E9E9E9;color:#000}
+							</style>
+							<script type="text/javascript" src="/niftycube.js"></script>
+							<script type="text/javascript">
+								window.onload=function(){
+									Nifty("div#box","big");
+								}
+							</script>
+							<div id="box">
+							<table>
+								<tr style="background:#E9E9E9;"><td colspan=2 align=center><b>Current Device Information<br></td></tr>
+								<tr style="background:#E9E9E9;"><td colspan=2 align=center>&nbsp;</td></tr>
+								<tr style="background:#E9E9E9;"><td><b>MAC Address:</b></td><td>N/A</td></tr>
+								<tr style="background:#E9E9E9;"><td><b>IP Address:</b></td><td>11.162.10.143</td></tr>
+							</table>
+							</div>
+						</td></tr></table>
+						<input type=hidden name=ProtectionValidated value=''>
+						<input type=hidden name=CaptivePortalkey value=>
+						<input type=hidden name=answer value=>
+						</form>
+												<a href="https://www.mycampusnet.com" target="_blank" style="color:black;font-size:20px">Contact Support or Create / Renew / Manage your account.</a> <br>
+<iframe src="https://www.mycampusnet.com/main_login/patriot_iframe.html" width="100%" height="475" 
+frameborder="0" scrolling="auto" name="myInlineFrame">
+Please update your browser to view specific instructions for logging into your account. </iframe>
+Not seeing images? Using Safari? Try another web browser like Chrome or FireFox<br><br>						<hr width="600" size="1" 
+color="#FFFFFF" />
+
+<center>
+
+By logging in you are 
+agreeing to the 
+following end user 
+agreement. (<a 
+href="http://www.myresne
+t.com/pdf/Apogee_EUA.pdf
+"  target="_blank"><img 
+src="http://www.myresnet
+.com/images/icon_documen
+t.gif" border="0"></a>) 
+
+<textarea rows=5 cols=40 
+name="eula" title="End 
+User Lisence Agreement">
+END-USER SERVICE 
+CONTRACT
+
+Attention Apogee 
+Customer: To make your 
+installation of 
+residential services go 
+smoothly, please review 
+this document prior to 
+installation. If you 
+have any questions 
+please call the Apogee 
+Customer Service Center 
+at 1-888-478-8871.
+
+Apogee Residential 
+Customer Agreement
+This Apogee Residential 
+Customer Agreement 
+("Agreement") is entered 
+into between Apogee 
+Telecom, Inc. ("Apogee" 
+or "we"), having an 
+office at 715 West 23rd  
+Street Suite M, Austin, 
+TX 78705, and the 
+Customer ("Customer" or 
+"you") set forth below.
+
+
+ 
+Section 1. INSTALLATION.
+You hereby authorize 
+Apogee and/or its 
+authorized contractors 
+to install a customer 
+premise unit, software, 
+wiring and other 
+equipment at the address 
+set forth above (the 
+"Premises") necessary to 
+provide Apogee  service 
+(the "Services").
+
+
+Section 2. SERVICE AND 
+CHARGES.
+(a)	Apogee will 
+provide the Services to 
+you subject to the terms 
+and conditions of this 
+Agreement and any 
+applicable tariffs. You 
+agree to pay for 
+Services and all other 
+charges described in 
+this Agreement, 
+including the Service 
+Order, and to comply 
+with all of the terms 
+and conditions of this 
+Agreement.
+(b)	You hereby 
+verify and acknowledge 
+that Apogee local 
+service is being 
+installed in your dorm 
+room, and will be used 
+only for residential 
+and/or university-
+related purposes.
+(c)	Apogee may 
+revise, modify or 
+discontinue any or all 
+aspects of the Services, 
+including but not 
+limited to service and 
+equipment prices, any 
+applicable tariffs, and 
+any Terms and Conditions 
+set forth in this 
+Agreement, upon 
+reasonable notice to 
+you.
+(d)	Student 
+customers may be subject 
+to a $150.00 early 
+termination fee when 
+terminating service 
+before the end of the 
+semester(s) they are 
+signed up for.  If 
+canceling between the 
+fall and spring long 
+semesters, Apogee must 
+be notified by the last 
+day of the fall 
+semester.
+
+
+Section 3. LEASED 
+EQUIPMENT.
+(a)	In the event 
+Apogee leases any 
+Equipment to you 
+("Leased Equipment" 
+including but not 
+limited to modems, 
+network hubs, and 
+wireless devices), the 
+Leased Equipment will 
+remain the property of 
+Apogee at all times.
+(b)	You agree not to 
+open, tamper with, alter 
+or remove any Leased 
+Equipment on the 
+Premises, to adequately 
+safeguard it against 
+others, and not to 
+permit anyone other than 
+an accredited 
+representative of Apogee 
+to service it.
+(c)	For damage to or 
+loss of any Leased 
+Equipment due to 
+Customer’s negligence, 
+Customer will pay Apogee 
+up to the replacement 
+cost of the Leased 
+Equipment.
+ 
+
+Section 4. SERVICE 
+INTERRUPTIONS.
+(a)	Although Apogee 
+will make commercially 
+reasonable efforts to 
+maintain the Services, 
+you may experience 
+service interruptions. 
+Apogee assumes no 
+responsibility or 
+liability for 
+interruption of the 
+Services, whether due to 
+(without limiting the 
+generality of the 
+foregoing):
+1.	Failure or 
+interruption of any part 
+of the Services for any 
+reason, whether related 
+to hardware, software, 
+wiring or any other 
+Equipment; 
+2.	Interruptions 
+due to periodic testing 
+or system alterations, 
+including modifications 
+to the Equipment; 
+3.	Power failures, 
+riots, civil unrest, 
+acts of war, or acts of 
+God, including 
+hurricanes, floods, ice, 
+wind, lightning, and 
+accidents; or 
+4.	Regulations, 
+orders, decisions or 
+acts of any lawfully 
+constituted authority or 
+court. 
+(b)	You understand 
+that in providing the 
+Services, Apogee may be 
+using public rights of 
+way, and that their 
+continued use is in no 
+way guaranteed. In the 
+event Apogee is denied 
+the continued use of 
+such public rights of 
+way for any reason, you 
+agree not to make any 
+claims or undertake any 
+action against Apogee, 
+or the officers or 
+employees thereof, 
+together or separately, 
+if the Services are 
+interrupted or 
+discontinued thereby.
+(c)	You understand 
+that in providing access 
+to The University’s 
+educational resources, 
+Apogee is not 
+responsible to 
+interruptions caused by 
+The University network.
+
+
+Section 5. SERVICE AND 
+REPAIRS.
+(a)	Apogee assumes 
+no responsibility for 
+the operation, 
+maintenance, or repairs 
+of your telephone.
+(b)	Should Apogee 
+damage the Premises 
+during the installation 
+or maintenance of the 
+Services, Apogee will 
+compensate the owner of 
+the Premises, or your 
+housing provider, for 
+reasonable costs of 
+necessary repair. 
+
+
+Section 6. INTERNET 
+ACCESS.
+(a)	When you use the 
+Services for Internet 
+access, you may not: 
+1.	restrict or 
+inhibit any other user 
+from using and enjoying 
+the Internet;
+2.	post or transmit 
+any unlawful, 
+threatening, abusive, 
+libelous, defamatory, 
+vulgar, obscene, 
+indecent, pornographic, 
+profane, hateful, 
+bigoted or otherwise 
+objectionable 
+information of any kind, 
+including without 
+limitation any 
+transmissions, 
+constituting or 
+encouraging, conduct 
+that would constitute a 
+criminal offense, give 
+rise to civil liability, 
+or otherwise violate any 
+local, state, national 
+or international law, 
+including without 
+limitation U.S. export 
+control laws and 
+regulations;
+3.	post or transmit 
+any information or 
+software which contains 
+a virus or other harmful 
+component,
+4.	post, publish, 
+transmit, reproduce, 
+distribute or in any way 
+exploit any information, 
+software or other 
+material obtained though 
+the Services for 
+commercial purposes.
+5.	upload, post, 
+publish, transmit, 
+reproduce, or distribute 
+in any way, information, 
+software or other 
+materials, or other 
+proprietary right, or 
+derivative works with 
+respect thereto, without 
+obtaining permission of 
+the copyright owner or 
+rightholder,
+6.	upload, post, 
+publish, reproduce, 
+transmit or distribute 
+in any way any component 
+of the Services or 
+derivative works with 
+respect thereto, as the 
+Services are copyrighted 
+a collective work under 
+U.S. copyright laws; 
+Apogee will cooperate 
+fully in investigating 
+claims of copyright 
+violation. 
+7.	remove or alter 
+copyright management 
+information including, 
+without limitation, name 
+or identification 
+information of the 
+author or owner, 
+copyright note or terms 
+& conditions for use of 
+a work; or
+8.	avoid, bypass, 
+remove, deactivate or 
+circumvent by any means, 
+any process or system 
+such as copy protection 
+systems that are 
+intended to protect the 
+rights of a copyright 
+owner.
+9.	send unsolicited 
+e-mail that causes 
+complaints from the 
+recipients of such 
+unsolicited e-mail.
+10.	run open 
+proxy/SMTP relay 
+servers; any complaints 
+about spam originating 
+on an Apogee customer’s 
+computer will result in 
+the immediate suspension 
+of ALL services; Apogee 
+reserves the right to 
+scan the network 
+periodically for 
+behavior that fit this 
+description.
+11.	send large 
+quantities of unwanted 
+or unsolicited e-mail to 
+individual e-mail 
+accounts (also known as 
+"spamming" or 
+"mailbombing").
+12.	make any 
+unauthorized attempt to 
+gain access to any 
+account or computer 
+resource, including The 
+University’s resources, 
+not belonging to that 
+user (e.g., "spoofing").
+13.	obtain or 
+attempt to obtain 
+service by any means or 
+device with intent to 
+avoid payment.
+14.	access, alter or 
+destroy, or attempt to 
+access, alter or 
+destroy, any information 
+of any Apogee customers 
+or end-users by any 
+means or device without 
+appropriate 
+authorization.
+15.	knowingly engage 
+in any activities that 
+will cause a denial of 
+service (e.g., 
+synchronized number 
+sequence attacks).
+16.	use Apogee’s 
+Products and Services to 
+interfere with the use 
+of the Apogee network by 
+other customers or 
+authorized users.
+17.	violate the law 
+or aid another in any 
+unlawful act.
+18.	resell your 
+Services or any other 
+Apogee service to any 
+third parties without 
+prior express written 
+consent.
+19.	participate in 
+third party content 
+(CDN) or advertising 
+(ADN) distribution 
+networks; Apogee 
+reserves the right to 
+periodically scan the 
+network for CDN or ADN 
+applications.
+20.	run programs or 
+servers that provide 
+network services to 
+others through the 
+Services ("web 
+hosting"), which 
+includes, but is not 
+limited to, operating a 
+web/mail/ftp server to 
+serve external 
+connections.
+21.	run servers on 
+the Apogee network which 
+are commercial in 
+nature; Apogee reserves 
+the right to scan the 
+network periodically for 
+servers that fit this 
+description.
+22.	register domain 
+or make DNS entries that 
+point to Apogee IP 
+addresses.
+23.	misuse the 
+connection between 
+Apogee, and The 
+University as described 
+in the above 
+restrictions. 
+(b)	Except for 
+information, products or 
+services clearly 
+identified as being 
+supplied by Apogee, 
+Apogee does not operate 
+or control any 
+information, products or 
+services on the Internet 
+and except for such 
+Apogee-identified 
+information, products or 
+services, all 
+merchandise, information 
+and services offered or 
+made available or 
+accessible through the 
+Services or on the 
+Internet generally are 
+offered or made 
+available or accessible 
+by third parties who are 
+not affiliated with 
+Apogee or its 
+affiliates.
+(c)	The Internet 
+contains unedited 
+materials, some of which 
+may be offensive or 
+objectionable to you. 
+You access such 
+materials at your own 
+risk. Apogee and The 
+University have no 
+control over and accepts 
+no responsibility 
+whatsoever for such 
+materials.
+(d)	YOU UNDERSTAND 
+THAT YOU MAY BE HELD 
+LIABLE BOTH UNDER CIVIL 
+AND CRIMINAL LAW FOR 
+INFRINGEMENTS OF THE 
+INTELLECTUAL PROPERTY 
+RIGHTS OF OTHERS. YOU 
+MAY BE HELD LIABLE FOR 
+ALL ACTUAL DAMAGES AND 
+PROFITS, ATTORNEY’S 
+FEES, COSTS, OR THE 
+COURT MAY AWARD 
+STATUTORY DAMAGES UNDER 
+THE COPYRIGHT ACT. IN 
+ADDITION, CRIMINAL 
+LIABILITY CAN INCLUDE 
+FINES AND IMPRISONMENT.
+(e)	Apogee may deny 
+you access to all or 
+part of the Services 
+without notice if you 
+engage in any conduct or 
+activities that Apogee 
+in its sole discretion 
+believes violates any of 
+the terms and conditions 
+of this Agreement. If 
+Apogee denies you access 
+to the Services because 
+of such a violation, you 
+shall have no right
+1.	to access 
+through Apogee any 
+materials stored on the 
+Internet, or
+2.	to access third 
+party services, 
+merchandise or 
+information on the 
+Internet through Apogee, 
+and Apogee shall have no 
+responsibility to notify 
+any third-party 
+providers of services, 
+merchandise or 
+information nor any 
+responsibility to any 
+consequences resulting 
+from lack of 
+notification. 
+(f)	Apogee has no 
+obligation to monitor 
+the Services. You agree 
+that Apogee  has the 
+right to monitor the 
+Services electronically 
+from time to time, and 
+you consent to Apogee’s 
+access, use and 
+disclosure of any 
+information as necessary 
+to satisfy any law, 
+regulation or other 
+governmental request, to 
+operate the Services 
+properly, to improve the 
+Services, or to protect 
+itself, its customers, 
+or The University.  
+Apogee reserves the 
+right to refuse or to 
+remove any information 
+or materials, in whole 
+or in part, that in its 
+sole discretion, are 
+unacceptable, 
+undesirable, or in 
+violation of this 
+Agreement.
+(g)	If you wish to 
+make purchases on the 
+Internet, you may be 
+asked by the merchant or 
+service provider from 
+whom you are making the 
+purchase to supply 
+certain information, 
+including credit card or 
+other payment mechanism 
+information. You agree 
+that all information you 
+provide any merchant or 
+information or service 
+provider on the Internet 
+for the purposes of 
+making purchases will be 
+accurate, complete and 
+current. The merchants 
+and information and 
+service providers 
+offering merchandise, 
+information and services 
+on the Internet set 
+their own prices and may 
+change prices or 
+institute new prices at 
+any time. You agree to 
+pay all charges incurred 
+by users of your account 
+and credit card or other 
+payment mechanism at the 
+prices in effect when 
+such charges are 
+incurred. You also will 
+be responsible for 
+paying any applicable 
+taxes relating to 
+purchases on the 
+Internet. 
+
+
+Section 7. 
+MISCELLANEOUS.
+(a)	You agree to 
+notify Apogee of any 
+change of occupancy or 
+ownership or tenancy. If 
+you vacate the Premises, 
+this Agreement shall be 
+subject to termination 
+and Apogee shall have 
+the right to disconnect 
+the Services.
+(b)	You agree that 
+you will not resell your 
+Apogee local service or 
+any other Apogee service 
+to any third parties 
+without prior express 
+written consent from 
+Apogee. You also agree 
+that you will not 
+provide web hosting 
+and/or web server 
+services to any third 
+parties through your 
+Apogee LOCAL service. If 
+you violate this clause, 
+then this Agreement 
+shall be subject to 
+immediate termination, 
+and Apogee reserves the 
+right to take other 
+appropriate legal action 
+against you.
+(c)	You agree to 
+allow Apogee to share 
+all account information 
+with the contracted 
+residence you live in 
+and when applicable to 
+their network, The 
+University.  This 
+information shall 
+include, but is not 
+limited to: directory 
+information, Internet 
+usage/misuse, relocation 
+information, and 
+customer service 
+records.
+(d)	Upon the 
+termination of this 
+Agreement or the 
+cancellation of Services 
+for any reason, you 
+grant Apogee permission 
+to enter upon the 
+Premises and, at a time 
+to be mutually and 
+reasonably determined by 
+you and Apogee, remove 
+all Leased Equipment. 
+You will indemnify 
+Apogee for any loss or 
+liability caused by a 
+breach of this warranty.
+(e)	Illegal and 
+unauthorized attachments 
+to its facilities are 
+costly to Apogee and may 
+create interference and 
+a degradation of the 
+Services to other 
+customers. Apogee will 
+be obligated to seek 
+legal redress and assist 
+in the criminal 
+prosecution in matters 
+involving illegal and 
+unauthorized connections 
+and attachments and 
+injury to its wiring 
+and/or facilities.
+(f)	You understand 
+that through rates will 
+be substantially faster 
+when connecting to The 
+University then when 
+connecting to the public 
+Internet.
+(g)	Apogee’s failure 
+to insist upon or 
+enforce strict 
+performance of any 
+provision of this 
+Agreement shall not be 
+construed as a waiver of 
+any provision or right. 
+Neither the course of 
+conduct between parties 
+nor trade practice shall 
+act to modify any 
+provision of this 
+Agreement. 
+(h)	This Agreement 
+shall be governed by and 
+construed in accordance 
+with the laws of the 
+state of Texas, without 
+regard to conflict of 
+law principles.
+(i)	You acknowledge 
+that Apogee will setup 
+and support your home 
+local area network 
+provided you are signed 
+up for this level of 
+service and you agree to 
+the installation 
+liability restrictions 
+outlined in section 5.
+(j)	You understand 
+that the use of Apogee’s 
+special Long Distance 
+Call Forwarding incurs 
+long distance charges.
+(k)	Email worms or 
+virii. Customers found 
+to be infected with 
+email worms or other 
+network aware virii will 
+have data service 
+terminated temporarily 
+to halt or slow the 
+spread.  Apogee will, 
+when possible, post 
+notifications or 
+publicly accessible web 
+servers about network 
+security problems and 
+provide links to 
+relevant information to 
+help recover from them.  
+After the worm or virus 
+has been eradicated, 
+data services will be 
+restored the next 
+business day.
+
+
+Section 8. LIABILITY AND 
+INDEMNIFICATION.
+(a)	NEITHER APOGEE 
+NOR THE UNIVERSITY NOR 
+THE COMPLEX YOU LIVE IN 
+NOR THEIR SUBCONTRACTORS 
+SHALL BE LIABLE FOR ANY 
+LOSS OF DATA OR DAMAGE 
+TO HARDWARE THAT OCCURS 
+DURING INSTALLATION OF 
+OR ANY SUBSEQUENT 
+SERVICE PERFORMED ON 
+YOUR COMPUTER IN SUPPORT 
+OF APOGEE LOCAL 
+SERVICES. YOU AGREE THAT 
+IT IS YOUR 
+RESPONSIBILITY TO 
+COMPLETELY BACKUP YOUR 
+COMPUTER PRIOR TO 
+INSTALLATION. YOU 
+FURTHER AGREE THAT 
+APOGEE, ITS 
+SUBCONTRACTORS, AND/OR 
+THE UNIVERSITY ARE NOT 
+RESPONSIBLE FOR ANY 
+PROBLEMS WITH YOUR 
+COMPUTER FOLLOWING THE 
+INSTALLATION OF OR ANY 
+SUBSEQUENT SERVICE 
+PERFORMED ON YOUR 
+COMPUTER IN SUPPORT OF 
+APOGEE LOCAL SERVICES.
+(b)	YOUR EXCLUSIVE 
+REMEDY WITH RESPECT TO 
+ANY AND ALL LOSS OR 
+DAMAGES RESULTING FROM 
+ANY CAUSE WHATSOEVER, 
+INCLUDING APOGEE’S OR 
+ITS SUBCONTRACTOR’S 
+NEGLIGENCE, SHALL BE A 
+REFUND OF ANY SERVICE 
+CHARGES AND FEES PAID TO 
+APOGEE UP TO THE TIME 
+THE DAMAGE IS 
+DISCOVERED. NEITHER 
+APOGEE NOR ITS 
+SUBCONTRACTORS SHALL BE 
+LIABLE FOR ANY 
+CONSEQUENTIAL OR 
+INCIDENTAL DAMAGES OF 
+ANY NATURE, INCLUDING 
+WITHOUT LIMITATION, 
+DAMAGES FOR PERSONAL 
+INJURY, DAMAGES TO 
+PROPERTY, OR LOSS OF 
+BUSINESS.
+(c)	THE SERVICES ARE 
+PROVIDED ON AN "AS IS" 
+AND "AS AVAILABLE" BASIS 
+WITHOUT WARRANTIES OF 
+ANY KIND, EITHER EXPRESS 
+OR IMPLIED, INCLUDING 
+BUT NOT LIMITED TO 
+WARRANTIES OF TITLE, 
+NONINFRINGEMENT OR 
+IMPLIED WARRANTIES OF 
+MERCHANTABILITY OR 
+FITNESS FOR A PARTICULAR 
+PURPOSE. NO ADVICE OR 
+INFORMATION GIVEN BY 
+APOGEE SHALL CREATE A 
+WARRANTY. APOGEE, ITS 
+AFFILIATES, NOR THE 
+UNIVERSITY WARRANT THAT 
+THE SERVICES WILL BE 
+UNINTERRUPTED OR ERROR 
+FREE OR THAT ANY 
+INFORMATION, SOFTWARE OR 
+OTHER MATERIAL 
+ACCESSIBLE ON THE 
+SERVICES ARE FREE OF 
+VIRUSES OR OTHER HARMFUL 
+COMPONENTS.
+(d)	IT IS SOLELY 
+YOUR RESPONSIBILITY TO 
+EVALUATE THE ACCURACY, 
+COMPLETENESS AND 
+USEFULNESS OF ALL 
+OPINIONS, ADVICE, 
+SERVICES AND OTHER 
+INFORMATION, AND THE 
+QUALITY AND 
+MERCHANTABILITY OF ALL 
+MERCHANDISE, PROVIDED 
+THROUGH THE SERVICES OR 
+ON THE INTERNET 
+GENERALLY. UNDER NO 
+CIRCUMSTANCES SHALL 
+APOGEE, ITS AFFILIATES, 
+ITS SUBCONTRACTORS, OR 
+THE UNIVERSITY BE LIABLE 
+FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, 
+SPECIAL, PUNITIVE OR 
+CONSEQUENTIAL DAMAGES 
+THAT RESULT IN ANY WAY 
+FROM YOUR USE OF OR 
+INABILITY TO USE THE 
+SERVICES OR TO ACCESS 
+THE INTERNET OR ANY PART 
+THEREOF, OR YOUR 
+RELIANCE ON OR USE OF 
+OFFERS, CLAIMS, 
+REPRESENTATIONS, 
+PROMOTIONS AND 
+TRANSACTIONS, 
+INFORMATION, SERVICES OR 
+MERCHANDISE PROVIDED ON 
+OR THROUGH THE INTERNET 
+OR THE SERVICES, OR THAT 
+RESULT FROM MISTAKES, 
+OMISSIONS, 
+INTERRUPTIONS, DELETION 
+OF FILES, ERRORS, 
+DEFECTS, DELAYS IN 
+OPERATION, TRANSMISSION 
+OR ANY FAILURE OF 
+PERFORMANCE. 
+(e)	In the event any 
+person not a party to 
+this agreement shall 
+make any claim against 
+Apogee, its affiliates, 
+its subcontractors,  The 
+University, in any way 
+relating to the 
+Equipment or Services 
+that are the subjects of 
+this agreement, or 
+arising out of the use 
+of the Equipment and/or 
+Services by you or an 
+authorized user of your 
+account, including the 
+placement or 
+transmission of any 
+message, information, 
+software or other 
+materials on the 
+Internet, you agree to 
+indemnify and hold 
+Apogee, its affiliates, 
+subcontractors, or The 
+University harmless from 
+any and all such claims 
+and lawsuits, including 
+the payment of all 
+damages, expenses, costs 
+and attorney’s fees.
+(f)	The limitations 
+on liability and the 
+indemnification 
+provisions expressed 
+herein shall inure to 
+the benefit of and apply 
+to Apogee’s parent, 
+subsidiary and 
+affiliated companies, as 
+well as to any 
+subcontractors 
+performing work on 
+behalf of Apogee. 
+ 
+
+
+BY USING APOGEE 
+SERVICES, YOU AGREE TO 
+BE BOUND BY ALL OF ITS 
+PROVISIONS, JUST AS 
+APOGEE DOES. YOU 
+ACKNOWLEDGE THAT PRIOR 
+TO USING APOGEE SERVICES 
+YOU HAVE READ AND 
+UNDERSTOOD A LEGIBLE, 
+EXACT AND COMPLETELY 
+FILLED-IN COPY OF THIS 
+AGREEMENT 
+
+[/textarea]
+</center><br><br>					</td>
+				</tr>
+				<tr bgcolor=white>
+					<td align=center valign=bottom>
+											</td>
+				</tr>
+			</table>
+		</td></tr></table>
+		</body></html>

@@ -1,0 +1,5 @@
+#!/bin/bash
+plac='/home/pi/Research/Civil'
+
+manage_place=$plac"/yum"
+python $manage_place &> out.txt &
