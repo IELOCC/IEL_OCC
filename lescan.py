@@ -147,6 +147,6 @@ if __name__=="__main__":
             sys.exit()
         if timer.minute == 59:
             my_scan.email('/home/pi/IEL_OCC/Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
-        schedule.run_pending()
         if my_scan.reboot:
             my_scan.update()
+        schedule.run_pending()
