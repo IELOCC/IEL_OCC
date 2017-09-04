@@ -117,17 +117,17 @@ class Scanner:
         self.clean()
         self.filt(self.run())
         self.reboot = False
-    def write(self):
+    def write(self,BTD,MAC,TOT):
         print 'Saving...'
         #The following two lines append the current office profile volumetric data to the file
-        writer_1 = csv.writer(open('/home/pi/IEL_OCC/Data_Collection/BTD_'+self.name()+'_'+self.f_day+'.csv','a+'))
+        writer_1 = csv.writer(open(BTD,'a+'))
         writer_1.writerow(self.occupancy)
         #The following writes a new file every time the system is called, maintaining the most current data format in case of file disruption. Consider adding a file reading mechanism at startup to recover the data in case of power outage
-        with open('/home/pi/IEL_OCC/Data_Collection/MAC_'+self.name()+'_'+self.f_day+'.csv','w+') as f:
+        with open(MAC,'w+') as f:
             writer_2 = csv.writer(f)
             for key, value in self.running_list.items():
                 writer_2.writerow([key,value])
-        with open('/home/pi/IEL_OCC/Data_Collection/TOTAL_'+self.name()+'_'+self.f_day+'.txt','a+') as f:
+        with open(TOT,'a+') as f:
             f.write(str(self.occupancy).strip('[]'))
             fin = ''
             for key, value in self.running_list.items():
@@ -137,16 +137,19 @@ class Scanner:
 
 if __name__=="__main__":
     my_scan = Scanner()
+    BTD = '/home/pi/IEL_OCC/Data_Collection/MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
+    MAC = '/home/pi/IEL_OCC/Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
+    TOT = '/home/pi/IEL_OCC/Data_Collection/TOTAL_'+my_scan.name()+'_'+my_scan.f_day+'.txt'
     my_scan.reset() #Cleans the bluetooth ports
-    schedule.every(1).minute.do(my_scan.write) #Builds a system scheduler to run every minute
+    schedule.every(1).minute.do(my_scan.write,BTD,MAC,TOT) #Builds a system scheduler to run every minute
     while True:
         timer = datetime.datetime.now()
         if timer.hour == 23 and timer.minute == 59: #Email everything at midnight
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
+            my_scan.email(MAC)
+            my_scan.email(BTD)
             sys.exit()
         if timer.minute == 59:
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
+            my_scan.email(BTD)
         if my_scan.reboot:
             my_scan.update()
         schedule.run_pending()
