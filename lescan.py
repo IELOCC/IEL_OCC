@@ -21,7 +21,7 @@ from email.mime.text import MIMEText
 class Scanner:
     running_list = {}
     occupancy = []
-    day = datetime.date.today();f_day = str(datetime.datetime.now())
+    day = datetime.date.today();f_day = str(day.year)+"-"+str(day.month)+"-"+str(day.day)
     reboot = False
 
     def name(self):
