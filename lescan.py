@@ -137,10 +137,10 @@ class Scanner:
         self.reboot = True
 
 if __name__=="__main__":
-    my_scan = Scanner()
-    BTD = '/home/pi/IEL_OCC/Data_Collection/MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
-    MAC = '/home/pi/IEL_OCC/Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
-    TOT = '/home/pi/IEL_OCC/Data_Collection/TOTAL_'+my_scan.name()+'_'+my_scan.f_day+'.txt'
+    #/home/pi/IEL_OCC/Data_Collection/
+    BTD = 'MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
+    MAC = 'BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
+    TOT = 'TOT_'+my_scan.name()+'_'+my_scan.f_day+'.txt'
     my_scan.reset() #Cleans the bluetooth ports
     schedule.every(1).minute.do(my_scan.write,BTD,MAC,TOT) #Builds a system scheduler to run every minute
     while True:
