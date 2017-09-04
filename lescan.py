@@ -120,8 +120,9 @@ class Scanner:
     def write(self,BTD,MAC,TOT):
         print 'Saving...'
         #The following two lines append the current office profile volumetric data to the file
-        writer_1 = csv.writer(open(BTD,'a+'))
-        writer_1.writerow(self.occupancy)
+        with open(BTD,'a+') as f:
+            writer_1 = csv.writer(f)
+            writer_1.writerow(self.occupancy)
         #The following writes a new file every time the system is called, maintaining the most current data format in case of file disruption. Consider adding a file reading mechanism at startup to recover the data in case of power outage
         with open(MAC,'w+') as f:
             writer_2 = csv.writer(f)
