@@ -138,11 +138,16 @@ class Scanner:
 
 if __name__=="__main__":
     #/home/pi/IEL_OCC/Data_Collection/
-    script_dir = os.path.dirname(__file__)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    dest_dir = os.path.join(script_dir,'Data_Collection')
+    try:
+        os.makedirs(dest_dir)
+    except OSError:
+        pass # already exists
     my_scan = Scanner()
-    BTD = os.path.join(script_dir,'Data_Collection/BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
-    MAC = os.path.join(script_dir,'Data_Collection/MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
-    TOT = os.path.join(script_dir,'Data_Collection/TOT_'+my_scan.name()+'_'+my_scan.f_day+'.txt')
+    BTD = os.path.join(dest_dir,'BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
+    MAC = os.path.join(dest_dir,'MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
+    TOT = os.path.join(dest_dir,'TOT_'+my_scan.name()+'_'+my_scan.f_day+'.txt')
     my_scan.reset() #Cleans the bluetooth ports
     schedule.every(1).minute.do(my_scan.write,BTD,MAC,TOT) #Builds a system scheduler to run every minute
     while True:
