@@ -21,9 +21,11 @@ from email.mime.text import MIMEText
 class Scanner:
     running_list = {}
     occupancy = []
-    day = datetime.date.today();f_day = str(day.month)+'_'+str(day.day)+'_'+str(day.year)
+    day = datetime.date.today();f_day = str(datetime.datetime.now())
     reboot = False
 
+    def name(self):
+        return open('/home/pi/name','r').read().rstrip()
     def email(self,file_n):
         print 'Emailing...'
         # Create a text/plain message
@@ -118,14 +120,14 @@ class Scanner:
     def write(self):
         print 'Saving...'
         #The following two lines append the current office profile volumetric data to the file
-        writer_1 = csv.writer(open('Data_Collection/office_profile_'+self.f_day+'.csv','a+'))
+        writer_1 = csv.writer(open('/home/pi/IEL_OCC/Data_Collection/BTD_IEL_'+self.name()+'_'+self.f_day+'.csv','a+'))
         writer_1.writerow(self.occupancy)
         #The following writes a new file every time the system is called, maintaining the most current data format in case of file disruption. Consider adding a file reading mechanism at startup to recover the data in case of power outage
-        with open('Data_Collection/office_cumulative_'+self.f_day+'.csv','w+') as f:
+        with open('/home/pi/IEL_OCC/Data_Collection/MAC_IEL_'+self.name()+'_'+self.f_day+'.csv','w+') as f:
             writer_2 = csv.writer(f)
             for key, value in self.running_list.items():
                 writer_2.writerow([key,value])
-        with open('Data_Collection/office_total_'+self.f_day+'.txt','a+') as f:
+        with open('/home/pi/IEL_OCC/Data_Collection/IEL_TOTAL_'+self.name()+'_'+self.f_day+'.txt','a+') as f:
             f.write(str(self.occupancy).strip('[]'))
             fin = ''
             for key, value in self.running_list.items():
@@ -140,9 +142,11 @@ if __name__=="__main__":
     while True:
         timer = datetime.datetime.now()
         if timer.hour == 23 and timer.minute == 59: #Email everything at midnight
-            my_scan.email('Data_Collection/office_profile_'+my_scan.f_day+'.csv')
-            my_scan.email('Data_Collection/office_cumulative_'+my_scan.f_day+'.csv')
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.MAC+'_'+my_scan.f_day+'.csv')
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
             sys.exit()
+        if timer.minute = 59:
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
         schedule.run_pending()
         if my_scan.reboot:
             my_scan.update()
