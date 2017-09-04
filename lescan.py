@@ -142,11 +142,11 @@ if __name__=="__main__":
     while True:
         timer = datetime.datetime.now()
         if timer.hour == 23 and timer.minute == 59: #Email everything at midnight
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.MAC+'_'+my_scan.f_day+'.csv')
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/MAC_IEL_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/BTD_IEL_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
             sys.exit()
         if timer.minute == 59:
-            my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
+            my_scan.email('/home/pi/IEL_OCC/Data_Collection/BTD_IEL_'+my_scan.name()+'_'+my_scan.f_day+'.csv')
         schedule.run_pending()
         if my_scan.reboot:
             my_scan.update()
