@@ -138,6 +138,7 @@ class Scanner:
 
 if __name__=="__main__":
     #/home/pi/IEL_OCC/Data_Collection/
+    my_scan = Scanner()
     BTD = 'MAC_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
     MAC = 'BTD_'+my_scan.name()+'_'+my_scan.f_day+'.csv'
     TOT = 'TOT_'+my_scan.name()+'_'+my_scan.f_day+'.txt'
