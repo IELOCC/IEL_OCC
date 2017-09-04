@@ -1,4 +1,4 @@
-#!/usr/bin/python3.4
+#!/usr/bin/env python
 
 import subprocess
 import os
@@ -9,6 +9,7 @@ import csv
 import time
 import smtplib
 import mimetypes
+import json
 import sys
 from email.mime.multipart import MIMEMultipart
 from email import encoders
@@ -85,41 +86,73 @@ class Scanner:
         off = subprocess.Popen('sudo hciconfig hci0 reset',stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
         out,err = off.communicate()
         return None
-    def run(self):
+    def run(self,timer=25):
         print 'Running...'
-        timer = 15
-        command = "sudo timeout "+str(timer)+" stdbuf -oL hcitool lescan"
+        command = "sudo timeout "+str(timer)+" hcidump [-a]"
         current = subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
         out,err = current.communicate()
-        return out.split('\n')
+        return out
+    def parse(self,raw_data):
+        try:
+	    p = raw_data
+            mac = {}
+	    #Splits the dump info into segments based on event
+            j = p.split('HCI Event:')
+            for i in range(len(j)): #For each bluetooth event
+            	a = j[i].find('bdaddr') #Looks for the mac found
+            	if a != -1 and "nd" not in j[i][a+7:a+24] and j[i][a+7:a+24] != "": #Filters events without mac address and exceptional cases
+            	    mac_add = j[i][a+7:a+24]
+		    b = j[i].find('RSSI')#Looks to see if RSSI in Event
+            	    if b != -1:
+                        start_point = b+7 #Arbitrary point that was found to begin the RSSI
+                        end_point = start_point
+                        bool_guy = True
+                        while bool_guy: #This while loop keeps looking until the part isn't a digit. In this way we can manage variable length numbers
+                            if j[i][end_point+1].isdigit():
+                                end_point += 1
+                            else:
+                                bool_guy = False
+                        mac[j[i][a+7:a+24]] = int(j[i][start_point:end_point+1]) #Value is recorded if found
+            	    else:
+			mac[j[i][a+7:a+24]] = None #If no RSSI, value is still recorded with NONE
+            return mac
+        except:
+            return None
     def filt(self,macs):
         print 'Filtering...'
-        temp = {}
-        for i in macs[1:len(macs)]:
-            if i != '':
-                temp[i[0:17]] = 1
-
         #Adds data for histogram approach at volumetric measurement
         timeit = datetime.datetime.now()
-        t = str(timeit),len(temp)
-        self.occupancy = t #This adds the tuple containing time and occupancy volume to occupancy list
-        #Adds to the running counter of the day
-        for k,v in temp.items():
-            if k in self.running_list:
-                self.running_list[k]+=1
-            else:
-                self.running_list[k]=1
-        return None
+        try: #If parse returns none, this will catch that
+	    t = str(timeit),len(macs)
+            self.occupancy = t #This adds the tuple containing time and occupancy volume to occupancy list
+            self.RSSI = str(timeit),macs
+            #Adds to the running counter of the day
+            for k,v in macs.items():
+                if k in self.running_list:
+                    self.running_list[k]+=1
+                else:
+                    self.running_list[k]=1
+	except TypeError:
+	    self.occupancy = str(timeit),0
+	    self.RSSI = str(timeit),macs        
+	return None
     def update(self):
         print "Updating..."
-        self.clean()
-        self.filt(self.run())
-        self.reboot = False
+        self.clean() #Cleans the bluetooth channel
+        self.filt(self.parse(self.run())) #Runs our filtering techniques on the values
+        print "New values"
+	print self.RSSI
+	self.reboot = False #For the timing module in the main function
     def write(self):
         print 'Saving...'
         #The following two lines append the current office profile volumetric data to the file
         writer_1 = csv.writer(open('Data_Collection/office_profile_'+self.f_day+'.csv','a+'))
-        writer_1.writerow(self.occupancy)
+        print "Writing Occupancy {}".format(self.occupancy)
+	writer_1.writerow(self.occupancy)
+        #Stores all of the data - timestamp and RSSI info
+        with open('Data_Collection/office_profile_RSSI_'+self.f_day+'.csv','a+') as json_file:
+            json.dump(self.RSSI,json_file)
+
         #The following writes a new file every time the system is called, maintaining the most current data format in case of file disruption. Consider adding a file reading mechanism at startup to recover the data in case of power outage
         with open('Data_Collection/office_cumulative_'+self.f_day+'.csv','w+') as f:
             writer_2 = csv.writer(f)
@@ -136,6 +169,7 @@ class Scanner:
 if __name__=="__main__":
     my_scan = Scanner()
     my_scan.reset() #Cleans the bluetooth ports
+    my_scan.update()
     schedule.every(1).minute.do(my_scan.write) #Builds a system scheduler to run every minute
     while True:
         timer = datetime.datetime.now()
@@ -144,5 +178,6 @@ if __name__=="__main__":
             my_scan.email('Data_Collection/office_cumulative_'+my_scan.f_day+'.csv')
             sys.exit()
         schedule.run_pending()
+        #Regularly refreshes the data
         if my_scan.reboot:
             my_scan.update()
