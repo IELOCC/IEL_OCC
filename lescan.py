@@ -145,7 +145,7 @@ if __name__=="__main__":
             my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.MAC+'_'+my_scan.f_day+'.csv')
             my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
             sys.exit()
-        if timer.minute = 59:
+        if timer.minute == 59:
             my_scan.email('/home/pi/IEL_OCC/Data_Collection/'+my_scan.BTD+'_'+my_scan.f_day+'.csv')
         schedule.run_pending()
         if my_scan.reboot:
