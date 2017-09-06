@@ -152,13 +152,13 @@ if __name__=="__main__":
     schedule.every(1).minute.do(my_scan.write,BTD,MAC,TOT) #Builds a system scheduler to run every minute
     while True:
         timer = datetime.datetime.now()
-        if timer.hour == 17 and timer.minute == 15: #Email everything at midnight
+        if timer.hour == 23 and timer.minute == 59: #Email everything at midnight
             my_scan.email(MAC)
             my_scan.email(BTD)
             sys.exit()
-        if timer.minute == 59:
+        elif timer.minute == 59 and timer.second == 59:
             my_scan.email(BTD)
-            time.sleep(60)
+            time.sleep(1)
         if my_scan.reboot:
             my_scan.update()
         schedule.run_pending()
