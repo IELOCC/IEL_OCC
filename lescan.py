@@ -29,56 +29,58 @@ class Scanner:
     def name(self):
         return open('/home/pi/name','r').read().rstrip()
     def email(self,file_n):
-        print 'Emailing...'
-        # Create a text/plain message
-        today = datetime.datetime.now().date()
-        msg = MIMEMultipart()
-        msg['Subject'] = 'Data for '+str(today)
-        sender = 'iel.datacollection@gmail.com'
-        reciever = 'iel.basdata@gmail.com'
-        msg['From'] = sender
-        msg['To'] = reciever
+        try:
+            print 'Emailing...'
+            # Create a text/plain message
+            today = datetime.datetime.now().date()
+            msg = MIMEMultipart()
+            msg['Subject'] = 'Data for '+str(today)
+            sender = 'iel.datacollection@gmail.com'
+            reciever = 'iel.basdata@gmail.com'
+            msg['From'] = sender
+            msg['To'] = reciever
 
-        fileToSend = file_n #We might consider passing this through the filename function to modify the name in the email
-        username = "iel.datacollection@gmail.com"
-        password = "ieloffice"
+            fileToSend = file_n #We might consider passing this through the filename function to modify the name in the email
+            username = "iel.datacollection@gmail.com"
+            password = "ieloffice"
 
-        ctype, encoding = mimetypes.guess_type(fileToSend)
-        if ctype is None or encoding is not None:
-            ctype = "application/octet-stream"
+            ctype, encoding = mimetypes.guess_type(fileToSend)
+            if ctype is None or encoding is not None:
+                ctype = "application/octet-stream"
 
-        maintype, subtype = ctype.split("/", 1)
+            maintype, subtype = ctype.split("/", 1)
 
-        if maintype == "text":
-            fp = open(fileToSend)
-            # Note: we should handle calculating the charset
-            attachment = MIMEText(fp.read(), _subtype=subtype)
-            fp.close()
-        elif maintype == "image":
-            fp = open(fileToSend, "rb")
-            attachment = MIMEImage(fp.read(), _subtype=subtype)
-            fp.close()
-        elif maintype == "audio":
-            fp = open(fileToSend, "rb")
-            attachment = MIMEAudio(fp.read(), _subtype=subtype)
-            fp.close()
-        else:
-            fp = open(fileToSend, "rb")
-            attachment = MIMEBase(maintype, subtype)
-            attachment.set_payload(fp.read())
-            fp.close()
-            encoders.encode_base64(attachment)
-        attachment.add_header("Content-Disposition", "attachment", filename=fileToSend)
-        msg.attach(attachment)
-
-        server = smtplib.SMTP("smtp.gmail.com:587")
-        server.ehlo()
-        server.starttls()
-        server.ehlo()
-        server.login(username,password)
-        server.sendmail(sender, reciever, msg.as_string())
-        server.quit()
-        return None
+            if maintype == "text":
+                fp = open(fileToSend)
+                # Note: we should handle calculating the charset
+                attachment = MIMEText(fp.read(), _subtype=subtype)
+                fp.close()
+            elif maintype == "image":
+                fp = open(fileToSend, "rb")
+                attachment = MIMEImage(fp.read(), _subtype=subtype)
+                fp.close()
+            elif maintype == "audio":
+                fp = open(fileToSend, "rb")
+                attachment = MIMEAudio(fp.read(), _subtype=subtype)
+                fp.close()
+            else:
+                fp = open(fileToSend, "rb")
+                attachment = MIMEBase(maintype, subtype)
+                attachment.set_payload(fp.read())
+                fp.close()
+                encoders.encode_base64(attachment)
+            attachment.add_header("Content-Disposition", "attachment", filename=fileToSend)
+            msg.attach(attachment)
+            server = smtplib.SMTP("smtp.gmail.com:587")
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(username,password)
+            server.sendmail(sender, reciever, msg.as_string())
+            server.quit()
+            return None
+        except:
+            pass
     def reset(self): #Really shouldn't be used, as the program will terminate in the morning
         self.running_list.clear()
     def sort(self):
