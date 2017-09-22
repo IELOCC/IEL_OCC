@@ -20,6 +20,8 @@ from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
 
+#Making modifications to the script location
+
 class Scanner:
     running_list = {}
     occupancy = []
@@ -157,11 +159,11 @@ if __name__=="__main__":
     while True:
         timer = datetime.datetime.now()
         if timer.hour == 23 and timer.minute == 59: #Email everything at midnight
-            my_scan.email(MAC)
-            my_scan.email(BTD)
+            #my_scan.email(MAC)
+            #my_scan.email(BTD)
             sys.exit()
         elif timer.minute == 59 and timer.second == 59:
-            my_scan.email(BTD)
+            #my_scan.email(BTD)
             time.sleep(1)
         if my_scan.reboot:
             my_scan.update()
