@@ -107,7 +107,11 @@ if __name__=="__main__":
     file_name = os.path.join(dest_dir,datetime.datetime.today(),'.csv') #This puts a datestamp on the file name
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
-    header = ['Time']; for i in Macs: header.append(i); save(dest_dir,header); #This puts headers on the columns we're working with
+    header = ['Time'];
+    for i in Macs:
+        header.append(i);
+    save(dest_dir,header); #This puts headers on the columns we're working with
+
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
     while True:
