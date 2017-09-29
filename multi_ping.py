@@ -97,7 +97,7 @@ def updater():
 
 if __name__=="__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
+    dest_dir = os.path.join(script_dir,'/Multiping_Data') #Builds a path to the file we'd like to work with
     try:
         os.makedirs(dest_dir) #Makes a directory for saving the data
     except OSError:
