@@ -108,7 +108,7 @@ if __name__=="__main__":
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date()),'.csv') #This puts a datestamp on the file name
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
-    if os.path.exists(filename):
+    if os.path.exists(file_name):
         append_write = 'a' # append if already exists
     else:
         append_write = 'w' # make a new file if not
