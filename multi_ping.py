@@ -105,7 +105,7 @@ if __name__=="__main__":
         pass
     #June's fitbit, Thomas iPhone, Zoltan's android
     Macs = ['E5:7C:2D:4C:E2:B4','4C:57:CA:78:44:C8']#,'10:30:47:34:83:A0']
-    file_name = os.path.join(dest_dir,str(datetime.datetime.now().date()),'.csv') #This puts a datestamp on the file name
+    file_name = os.path.join(dest_dir+'/'+str(datetime.datetime.now().date()),'.csv') #This puts a datestamp on the file name
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
     if os.path.exists(file_name):
