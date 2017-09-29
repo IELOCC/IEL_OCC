@@ -97,7 +97,8 @@ def updater():
 
 if __name__=="__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dest_dir = os.path.join(script_dir,'/Multiping_Data') #Builds a path to the file we'd like to work with
+    dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
+    print(dest_dir)
     try:
         os.makedirs(dest_dir) #Makes a directory for saving the data
     except OSError:
@@ -110,7 +111,7 @@ if __name__=="__main__":
     header = ['Time'];
     for i in Macs:
         header.append(i);
-    save(dest_dir,header); #This puts headers on the columns we're working with
+    save(file_name,header); #This puts headers on the columns we're working with
 
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
@@ -124,5 +125,5 @@ if __name__=="__main__":
         if update:
             thing = multi(Macs)
             print thing
-            save(dest_dir,thing);
+            save(file_name,thing);
 
