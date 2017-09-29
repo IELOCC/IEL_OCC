@@ -87,8 +87,8 @@ def multi(devices):
     update = False
     return data
 
-def save(dest, data):
-    with open(dest,'a+') as f:
+def save(dest,append_write,data):
+    with open(dest,append_write) as f:
         writer = csv.writer(f)
         writer.writerow(data)
 
@@ -108,10 +108,14 @@ if __name__=="__main__":
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date()),'.csv') #This puts a datestamp on the file name
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
+    if os.path.exists(filename):
+        append_write = 'a' # append if already exists
+    else:
+        append_write = 'w' # make a new file if not
     header = ['Time'];
     for i in Macs:
         header.append(i);
-    save(file_name,header); #This puts headers on the columns we're working with
+    save(file_name,append_write,header); #This puts headers on the columns we're working with
 
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
@@ -125,5 +129,5 @@ if __name__=="__main__":
         if update:
             thing = multi(Macs)
             print thing
-            save(file_name,thing);
+            save(file_name,append_write,thing);
 
