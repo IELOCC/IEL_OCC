@@ -25,7 +25,7 @@ def bluetooth(address,delay=10):#Treading: Pass Delay, Mac
 
 def email(self,file_n,name):
     try:
-        print 'Emailing...'# Create a text/plain message
+        print('Emailing...')# Create a text/plain message
         today = datetime.datetime.now().date()
         msg = MIMEMultipart()
         msg['Subject'] = 'Data for '+str(today)
@@ -75,7 +75,7 @@ def email(self,file_n,name):
         pass
 
 def clean(self):
-    print 'Cleaning...'
+    print('Cleaning...')
     off = subprocess.Popen('sudo hciconfig hci0 reset',stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     out,err = off.communicate()
 
@@ -128,6 +128,6 @@ if __name__=="__main__":
             sys.exit()
         if update:
             thing = multi(Macs)
-            print thing
+            print(thing)
             save(file_name,append_write,thing);
 
