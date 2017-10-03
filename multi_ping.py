@@ -104,8 +104,8 @@ if __name__=="__main__":
         os.makedirs(dest_dir) #Makes a directory for saving the data
     except OSError:
         pass
-    #June's fitbit, Thomas iPhone, Zoltan's android
-    Macs = ['E5:7C:2D:4C:E2:B4','4C:57:CA:78:44:C8']#,'10:30:47:34:83:A0']
+    #June's fitbit, Thomas iPhone, June's iPhone, Zoltan's android
+    Macs = ['E5:7C:2D:4C:E2:B4','4C:57:CA:78:44:C8','1C:5C:F2:79:35:56']#,'10:30:47:34:83:A0']
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #This puts a datestamp on the file name
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
