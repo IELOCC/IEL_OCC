@@ -4,6 +4,7 @@ import schedule
 import csv
 import datetime
 import time
+import subprocess
 
 update = True
 Macs = []
