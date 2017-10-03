@@ -74,7 +74,7 @@ def email(self,file_n,name):
     except:
         pass
 
-def clean(self):
+def clean():
     print('Cleaning...')
     off = subprocess.Popen('sudo hciconfig hci0 reset',stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     out,err = off.communicate()
