@@ -36,6 +36,9 @@ def lescan(tracking, timer=10):
             output.append(1)
         else:
             output.append(0)
+
+    print("Out is: "+str(out))
+    print("Output is: "+str(output))
     return output
 
 def email(self,file_n,name):
