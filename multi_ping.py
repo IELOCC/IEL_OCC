@@ -28,7 +28,7 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
 
 def lescan(tracking, timer=10):
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
-    devices = subprocess.Popen('sudo timeout '+str(timer)+' lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    devices = subprocess.Popen('sudo timeout '+str(timer)+' hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out,err = devices.communicate()
     output = []
     for i in tracking:
@@ -38,7 +38,6 @@ def lescan(tracking, timer=10):
             output.append(0)
 
     print("Out is: "+str(out))
-    print("Output is: "+str(output))
     return output
 
 def email(self,file_n,name):
