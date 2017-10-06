@@ -151,5 +151,5 @@ if __name__=="__main__":
         if update:
             data = multi(scan_macs,ping_macs)
             print(data)
-            save(file_name,append_write,thing);
+            save(file_name,append_write,data)
 
