@@ -149,7 +149,7 @@ if __name__=="__main__":
                 time.sleep(3)
             sys.exit()
         if update:
-            data = multi(Macs)
+            data = multi(scan_macs,ping_macs)
             print(data)
             save(file_name,append_write,thing);
 
