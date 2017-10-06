@@ -32,7 +32,7 @@ def lescan(tracking, timer=10):
     our,err = devices.communicate()
     output = []
     for i in tracking:
-        if i in full_return:
+        if i in out:
             output.append(1)
         else:
             output.append(0)
