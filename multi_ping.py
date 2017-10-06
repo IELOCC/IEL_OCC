@@ -28,7 +28,7 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
 
 def lescan(tracking, timer=10):
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
-    devices = subprocess.Popen('sudo timeout 'str(timer)+' lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    devices = subprocess.Popen('sudo timeout '+str(timer)+' lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     our,err = devices.communicate()
     output = []
     for i in tracking:
