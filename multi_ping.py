@@ -29,7 +29,7 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
 def lescan(tracking, timer=10):
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     clean()
-    devices = subprocess.Popen('sudo timeout '+str(timer)+' hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    devices = subprocess.Popen('sudo hciconfig hci0 reset && sudo timeout '+str(timer)+' hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out,err = devices.communicate()
     output = []
     for i in tracking:
