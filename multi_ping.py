@@ -97,6 +97,7 @@ def clean():
     out,err = off.communicate()
 
 def multi(scan_macs,ping_macs):
+    clean() #This cleans the bluetooth channel each time we scan
     data = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")]    #Sets the time in the first column
     scan_out = lescan(scan_macs)        #Brings us information about the scanned devices
     ping_out = ping(ping_macs)          #Brings information about the pingged devices
