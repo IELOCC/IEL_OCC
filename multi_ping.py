@@ -49,7 +49,7 @@ def lescan(tracking, timer=10):
 
     output = []
     for i in tracking:
-        if i in out:
+        if i in str(out):
             output.append(1)
         else:
             output.append(0)
