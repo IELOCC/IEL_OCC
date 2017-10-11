@@ -134,10 +134,10 @@ if __name__=="__main__":
     except OSError:
         pass #If it can't make it then it must already exist
 
-    #Thomas iPhone, June's iPhone, Zoltan's android
-    ping_macs = ['4C:57:CA:78:44:C8','1C:5C:F2:79:35:56']#,'10:30:47:34:83:A0']
     #June's fitbit
-    scan_macs = ['E5:7C:2D:4C:E2:B4','D8:C4:6A:C4:35:05']
+    scan_macs = ['E5:7C:2D:4C:E2:B4']
+    #Thomas iPhone, June's iPhone, Jose's phone, Zoltan's android
+    ping_macs = ['4C:57:CA:78:44:C8','1C:5C:F2:79:35:56','D8:C4:6A:C4:35:05']#,'10:30:47:34:83:A0']
 
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
 
