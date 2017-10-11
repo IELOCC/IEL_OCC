@@ -128,18 +128,18 @@ if __name__=="__main__":
     dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
 
+    try:
+        os.makedirs(dest_dir) #Makes a directory for saving the data
+        save(file_name,append_write,header); #Only works if it's a new file
+    except OSError:
+        pass #If it can't make it then it must already exist
+
     #Thomas iPhone, June's iPhone, Zoltan's android
     ping_macs = ['4C:57:CA:78:44:C8','1C:5C:F2:79:35:56']#,'10:30:47:34:83:A0']
     #June's fitbit
     scan_macs = ['E5:7C:2D:4C:E2:B4']
 
     to_email = ['juneyoungpark@utexas.edu','HagenFritz@utexas.edu','trdougherty@utexas.edu'] #Sends the data to these emails
-
-    if os.path.exists(file_name):
-        append_write = 'a' # append if already exists
-    else:
-        append_write = 'w' # make a new file if not
-        save(file_name,append_write,header);
 
     header = ['Time']; #Builds the first column of our new file
     #This builds our header
@@ -148,11 +148,11 @@ if __name__=="__main__":
     for i in ping_macs:
         header.append(i)
 
-    try:
-        os.makedirs(dest_dir) #Makes a directory for saving the data
-        save(file_name,append_write,header); #Only works if it's a new file
-    except OSError:
-        pass #If it can't make it then it must already exist
+    if os.path.exists(file_name):
+        append_write = 'a' # append if already exists
+    else:
+        append_write = 'w' # make a new file if not
+        save(file_name,append_write,header);
 
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
