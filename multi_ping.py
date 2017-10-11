@@ -41,7 +41,7 @@ def lescan(tracking, timer=10):
         print("standard error of subprocess:")
         print(err)
     print("returncode of subprocess:")
-    print(devices.returncode
+    print(devices.returncode)
 
     output = []
     for i in tracking:
