@@ -32,15 +32,23 @@ def lescan(tracking, timer=10):
     clean()
     devices = subprocess.Popen('sudo hciconfig hci0 reset && sudo timeout '+str(timer)+' hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out,err = devices.communicate()
+
+    #This whole segment is to help me understand output process
+    if out:
+        print "standard output of subprocess:"
+        print out
+    if err:
+        print "standard error of subprocess:"
+        print err
+    print "returncode of subprocess:"
+    print sp.returncode
+
     output = []
     for i in tracking:
         if i in out:
             output.append(1)
         else:
             output.append(0)
-
-    print("Out is: "+str(out))
-    print("Err is: "+str(err))
     return output
 
 def email(self,file_n,name):
