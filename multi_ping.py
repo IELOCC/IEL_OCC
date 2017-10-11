@@ -130,7 +130,7 @@ if __name__=="__main__":
 
     try:
         os.makedirs(dest_dir) #Makes a directory for saving the data
-        save(file_name,append_write,header); #Only works if it's a new file
+        #save(file_name,append_write,header); #Only works if it's a new file
     except OSError:
         pass #If it can't make it then it must already exist
 
@@ -151,7 +151,7 @@ if __name__=="__main__":
     if os.path.exists(file_name):
         append_write = 'a' # append if already exists
     else:
-        append_write = 'w' # make a new file if not
+        append_write = 'w+' # make a new file if not
         save(file_name,append_write,header);
         append_write = 'a' # after header is made, change this status
 
