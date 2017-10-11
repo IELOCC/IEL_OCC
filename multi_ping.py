@@ -14,24 +14,30 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
     output = []
     for i in ping_macs:#only accepts lists
         final = 0#sets our default off state
-        command = 'sudo timeout '+str(delay)+' l2ping -c 1 '+str(i)#Here's the command of interest for the night
+        command = 'sudo l2ping -c 1 '+str(i)#Here's the command of interest for the night
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         try:
-            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate(timeout=10)
+        except TimeoutExpired:
+            process.kill() #Kills if no response after 10s
             out, err = process.communicate()
-            if "0% loss" in out: final = 1
-        except (KeyboardInterrupt, SystemExit):
-            raise
-        except:
+        except KeyboardInterrupt:
             print("Error with peripheral detection")
             pass
+        if "0% loss" in out: final = 1
         output.append(final)
     return output
 
 def lescan(tracking, timer=10):
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     clean()
-    devices = subprocess.Popen('sudo hciconfig hci0 reset && sudo timeout '+str(timer)+' hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out,err = devices.communicate()
+    devices = subprocess.Popen('sudo hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    try:
+        out,err = devices.communicate(timeout=10)
+    except TimeoutExpired:
+        devices.kill()
+        out,err = devices.communicate()
 
     #This whole segment is to help me understand output process
     if out:
