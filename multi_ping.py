@@ -35,13 +35,13 @@ def lescan(tracking, timer=10):
 
     #This whole segment is to help me understand output process
     if out:
-        print "standard output of subprocess:"
-        print out
+        print("standard output of subprocess:")
+        print(out)
     if err:
-        print "standard error of subprocess:"
-        print err
-    print "returncode of subprocess:"
-    print devices.returncode
+        print("standard error of subprocess:")
+        print(err)
+    print("returncode of subprocess:")
+    print(devices.returncode
 
     output = []
     for i in tracking:
@@ -166,4 +166,3 @@ if __name__=="__main__":
             data = multi(scan_macs,ping_macs)
             print(data)
             save(file_name,append_write,data)
-
