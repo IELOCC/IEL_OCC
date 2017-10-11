@@ -120,9 +120,12 @@ def save(dest,append_write,data):
         writer.writerow(data)
 
 def updater():
+    global update
     update = True
 
 if __name__=="__main__":
+    update = True
+    
     script_dir = os.path.dirname(os.path.abspath(__file__)) #This is our current working path
     dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
