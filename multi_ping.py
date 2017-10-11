@@ -139,6 +139,7 @@ if __name__=="__main__":
         append_write = 'a' # append if already exists
     else:
         append_write = 'w' # make a new file if not
+        save(file_name,append_write,header);
 
     header = ['Time']; #Builds the first column of our new file
     #This builds our header
@@ -152,7 +153,7 @@ if __name__=="__main__":
         save(file_name,append_write,header); #Only works if it's a new file
     except OSError:
         pass #If it can't make it then it must already exist
-        
+
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
     while True:
