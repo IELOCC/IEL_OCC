@@ -10,6 +10,7 @@ update = True
 Macs = []
 
 def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
+    clean()
     output = []
     for i in ping_macs:#only accepts lists
         final = 0#sets our default off state
