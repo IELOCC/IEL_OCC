@@ -153,6 +153,7 @@ if __name__=="__main__":
     else:
         append_write = 'w' # make a new file if not
         save(file_name,append_write,header);
+        append_write = 'a' # after header is made, change this status
 
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
