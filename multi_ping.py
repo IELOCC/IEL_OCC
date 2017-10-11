@@ -127,10 +127,6 @@ if __name__=="__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__)) #This is our current working path
     dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
-    try:
-        os.makedirs(dest_dir) #Makes a directory for saving the data
-    except OSError:
-        pass #If it can't make it then it must already exist
 
     #Thomas iPhone, June's iPhone, Zoltan's android
     ping_macs = ['4C:57:CA:78:44:C8','1C:5C:F2:79:35:56']#,'10:30:47:34:83:A0']
@@ -151,8 +147,12 @@ if __name__=="__main__":
     for i in ping_macs:
         header.append(i)
 
-    save(file_name,append_write,header); #This puts headers on the columns we're working with
-    print(header) #This shows the current header
+    try:
+        os.makedirs(dest_dir) #Makes a directory for saving the data
+        save(file_name,append_write,header); #Only works if it's a new file
+    except OSError:
+        pass #If it can't make it then it must already exist
+        
     clean(); #This cleans the bluetooth channel
     schedule.every(1).minute.do(updater) #Makes a function that runs every minute
     while True:
