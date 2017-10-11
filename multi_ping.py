@@ -111,7 +111,6 @@ def multi(scan_macs,ping_macs):
     data = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")]    #Sets the time in the first column
     scan_out = lescan(scan_macs)        #Brings us information about the scanned devices
     ping_out = ping(ping_macs)          #Brings information about the pingged devices
-    update = False
     return data+scan_out+ping_out
 
 def save(dest,append_write,data):
@@ -135,7 +134,7 @@ if __name__=="__main__":
         pass #If it can't make it then it must already exist
 
     #June's fitbit
-    scan_macs = ['E5:7C:2D:4C:E2:B4']
+    scan_macs = ['E5:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     #Thomas iPhone, June's iPhone, Jose's phone, Zoltan's android
     ping_macs = ['4C:57:CA:78:44:C8','1C:5C:F2:79:35:56','D8:C4:6A:C4:35:05']#,'10:30:47:34:83:A0']
 
@@ -168,3 +167,4 @@ if __name__=="__main__":
             data = multi(scan_macs,ping_macs)
             print(data)
             save(file_name,append_write,data)
+            update = False
