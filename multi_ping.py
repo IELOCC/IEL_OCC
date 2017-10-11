@@ -17,17 +17,10 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
         final = 0#sets our default off state
         command = 'sudo l2ping -c 1 '+str(i)#Here's the command of interest for the night
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        #try:
-        #    out, err = process.communicate(timeout=10)
-        #except TimeoutExpired:
-        time.sleep(5)
-        process.kill() #Kills if no response after 10s
-        out, err = process.communicate()
-        #except KeyboardInterrupt:
-        #    print("Error with peripheral detection")
-        #    pass
-        if "0% loss" in out: final = 1
+        out,err = process.communicate()
+        if "0% loss" in str(out): final = 1
         output.append(final)
+
     return output
 
 def lescan(tracking, timer=10):
