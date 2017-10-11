@@ -34,9 +34,7 @@ def lescan(tracking, timer=10):
     print('LEscan...')
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     clean()
-    devices = subprocess.Popen('sudo hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    time.sleep(10)
-    devices.kill()
+    devices = subprocess.Popen('sudo hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=10)
     out,err = devices.communicate()
 
     #This whole segment is to help me understand output process
