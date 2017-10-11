@@ -10,6 +10,7 @@ update = True
 Macs = []
 #Does this work
 def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
+    print('Ping...')
     output = []
     for i in ping_macs:#only accepts lists
         clean()
@@ -30,6 +31,7 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
     return output
 
 def lescan(tracking, timer=10):
+    print('LEscan...')
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     clean()
     devices = subprocess.Popen('sudo hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -56,6 +58,7 @@ def lescan(tracking, timer=10):
     return output
 
 def email(self,file_n,name):
+    print('Emailing...')
     try:
         print('Emailing...')# Create a text/plain message
         today = datetime.datetime.now().date()
@@ -107,11 +110,12 @@ def email(self,file_n,name):
         pass
 
 def clean():
-    #print('Cleaning...')
+    print('Cleaning...')
     off = subprocess.Popen('sudo hciconfig hci0 reset',stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     out,err = off.communicate()
 
 def multi(scan_macs,ping_macs):
+    print('Initiating multi...')
     clean() #This cleans the bluetooth channel each time we scan
     data = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")]    #Sets the time in the first column
     scan_out = lescan(scan_macs)        #Brings us information about the scanned devices
@@ -120,6 +124,7 @@ def multi(scan_macs,ping_macs):
     return data+scan_out+ping_out
 
 def save(dest,append_write,data):
+    print('Saving...')
     with open(dest,append_write) as f:  #Writes data. Yaddah yaddah.
         writer = csv.writer(f)
         writer.writerow(data)
