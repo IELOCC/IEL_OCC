@@ -34,12 +34,8 @@ def lescan(tracking, timer=10):
     print('LEscan...')
     #tracking = ['E2:7C:2D:4C:E2:B4','F6:97:2C:20:BE:E4']
     clean()
-    devices = subprocess.Popen('sudo hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    try:
-        out,err = devices.communicate(timeout=10)
-    except:
-        devices.kill()
-        out,err = devices.communicate()
+    devices = subprocess.Popen('sudo timeout '+str(timer)+' stdbuf -oL hcitool lescan', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out,err = devices.communicate()
 
     #This whole segment is to help me understand output process
     if out:
