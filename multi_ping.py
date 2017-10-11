@@ -106,6 +106,9 @@ def clean():
     out,err = off.communicate()
 
 def multi(scan_macs,ping_macs):
+    global update
+    update = False
+
     print('Initiating multi...')
     clean() #This cleans the bluetooth channel each time we scan
     data = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")]    #Sets the time in the first column
@@ -124,8 +127,7 @@ def updater():
     update = True
 
 if __name__=="__main__":
-    update = True
-    
+    global update
     script_dir = os.path.dirname(os.path.abspath(__file__)) #This is our current working path
     dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
@@ -170,4 +172,3 @@ if __name__=="__main__":
             data = multi(scan_macs,ping_macs)
             print(data)
             save(file_name,append_write,data)
-            update = False
