@@ -19,6 +19,7 @@ def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
         #try:
         #    out, err = process.communicate(timeout=10)
         #except TimeoutExpired:
+        time.sleep(5)
         process.kill() #Kills if no response after 10s
         out, err = process.communicate()
         #except KeyboardInterrupt:
