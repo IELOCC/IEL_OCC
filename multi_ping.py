@@ -8,7 +8,6 @@ import subprocess
 
 update = True
 Macs = []
-
 #Does this work
 def ping(ping_macs,delay=10):#Treading: Pass Delay, Mac
     clean()
