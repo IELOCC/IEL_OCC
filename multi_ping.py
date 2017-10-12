@@ -167,3 +167,4 @@ if __name__=="__main__":
             data = multi_ping.multi(scan_macs,ping_macs)
             print(data)
             multi_ping.save(file_name,append_write,data)
+        schedule.run_pending()
