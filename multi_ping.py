@@ -14,7 +14,7 @@ class multiping:
         print('Ping...')
         output = []
         for i in ping_macs:#only accepts lists
-            clean()
+            self.clean()
             final = 0#sets our default off state
             command = 'sudo l2ping -c 1 '+str(i)#Here's the command of interest for the night
             process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -108,7 +108,7 @@ class multiping:
     def multi(self,scan_macs,ping_macs):
         self.update = False
         print('Initiating multi...')
-        clean() #This cleans the bluetooth channel each time we scan
+        self.clean() #This cleans the bluetooth channel each time we scan
         data = [datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")]    #Sets the time in the first column
         scan_out = self.lescan(scan_macs)        #Brings us information about the scanned devices
         ping_out = self.ping(ping_macs)          #Brings information about the pingged devices
