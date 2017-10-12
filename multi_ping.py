@@ -168,6 +168,7 @@ if __name__=="__main__":
                 email(file_name,i)
                 time.sleep(3)
             sys.exit()
+        print(update)
         if update:
             data = multi(scan_macs,ping_macs)
             print(data)
