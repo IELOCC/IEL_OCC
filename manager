@@ -130,6 +130,9 @@ if __name__=="__main__":
 
     #This segment is all prep work to protect the continuity of the file
     valuer = 0;
+
+    print("Checkpoint has been reached")
+
     day = initialize(mac_storage)
     storage_place = filename(file_name)
     print 'The filename will be {}'.format(storage_place)
