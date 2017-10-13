@@ -143,7 +143,6 @@ if __name__=="__main__":
             schedule.every(1).minute.do(objective,day,storage_place)
             break
     print 'Program started at:\t{}'.format(current)
-    print("Checkpoint 2 was reached")
     #Runs the main program
     while True:
         #Emails the csv if time is midnight. Then exits the program
