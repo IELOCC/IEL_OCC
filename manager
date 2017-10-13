@@ -130,11 +130,8 @@ if __name__=="__main__":
 
     #This segment is all prep work to protect the continuity of the file
     valuer = 0;
-
-    print("Checkpoint has been reached")
-
     day = initialize(mac_storage)
-    storage_place = filename(file_name)
+    storage_place = file_name
     print 'The filename will be {}'.format(storage_place)
     schedule.clear()
 
@@ -145,7 +142,7 @@ if __name__=="__main__":
             schedule.every(1).minute.do(objective,day,storage_place)
             break
     print 'Program started at:\t{}'.format(current)
-
+    print("Checkpoint 2 was reached")
     #Runs the main program
     while True:
         #Emails the csv if time is midnight. Then exits the program
