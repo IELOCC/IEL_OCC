@@ -116,15 +116,26 @@ def extract(obj):
     return sensor_data
 
 if __name__=="__main__":
+    script_dir = os.path.dirname(os.path.abspath(__file__)) #This is our current working path
+    dest_dir = os.path.join(script_dir,'Switchmate_Data') #Builds a path to the file we'd like to work with
+
+    file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
+    mac_storage = os.path.join(dest_dir,'mac_storage.json')
+
+    try:
+        os.makedirs(dest_dir) #Makes a directory for saving the data
+        #save(file_name,append_write,header); #Only works if it's a new file
+    except OSError:
+        pass #If it can't make it then it must already exist
+
+    #This segment is all prep work to protect the continuity of the file
     valuer = 0;
-    mac_storage = '/home/pi/Research/Civil/zoltan.json'
-    file_name = 'JUNE_ECJ_RPITEST1'
     day = initialize(mac_storage)
     storage_place = filename(file_name)
-
     print 'The filename will be {}'.format(storage_place)
     schedule.clear()
 
+    #Sets a consistent interval to start
     while True:
         current = time.time()
         if int(current)%60 == 0:
@@ -132,12 +143,14 @@ if __name__=="__main__":
             break
     print 'Program started at:\t{}'.format(current)
 
+    #Runs the main program
     while True:
+        #Emails the csv if time is midnight. Then exits the program
         timer = datetime.datetime.now()
         if(timer.hour == 23 and timer.minute== 59):
             email(storage_place)
             sys.exit()
-
+        #Runs the currently scheduled programs in queue
         schedule.run_pending()
         if valuer == 1:
             day.update()

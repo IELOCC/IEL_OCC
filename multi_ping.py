@@ -126,7 +126,7 @@ class multiping:
 if __name__=="__main__":
     multi_ping = multiping() #defines our object
     script_dir = os.path.dirname(os.path.abspath(__file__)) #This is our current working path
-    dest_dir = os.path.join(script_dir,'Multiping_Data') #Builds a path to the file we'd like to work with
+    dest_dir = os.path.join(script_dir,'Switchmate_Data') #Builds a path to the file we'd like to work with
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
     try:
         os.makedirs(dest_dir) #Makes a directory for saving the data
