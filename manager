@@ -120,7 +120,7 @@ if __name__=="__main__":
     dest_dir = os.path.join(script_dir,'Switchmate_Data') #Builds a path to the file we'd like to work with
 
     file_name = os.path.join(dest_dir,str(datetime.datetime.now().date())+'.csv') #Builds our file name
-    mac_storage = os.path.join(dest_dir,'mac_storage.json')
+    mac_storage = os.path.join(script_dir,'mac_storage.json') #looks in current directory for info file
 
     try:
         os.makedirs(dest_dir) #Makes a directory for saving the data
@@ -133,6 +133,7 @@ if __name__=="__main__":
     day = initialize(mac_storage)
     storage_place = file_name
     print 'The filename will be {}'.format(storage_place)
+    print 'The mac storage location is: {}'.format(mac_storage)
     schedule.clear()
 
     #Sets a consistent interval to start
